@@ -1,0 +1,290 @@
+1.
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		int[] numeros= new int[4];
+		float mediaA = 0 ;
+		Console.WriteLine("Ingrese 4 numeros");
+		for(int i = 0; i<4; i++){
+			Console.WriteLine("Ingrese un numero ");
+			numeros[i] = int.Parse(Console.ReadLine());
+			mediaA = mediaA + numeros[i];
+		}
+			Console.WriteLine("La media aritmetica de los numeros es: "+mediaA / 4);
+		
+			}
+}
+
+2. 
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		float[] numeros= new float[5];
+
+		Console.WriteLine("Ingrese 5 numeros");
+		for(int i = 0; i<5; i++){
+			Console.WriteLine("Ingrese un numero ");
+			numeros[i] = int.Parse(Console.ReadLine());
+		}
+		Console.WriteLine("");
+		for(int i = 4; i>=0; i--){
+			Console.WriteLine(numeros[i]);
+		}
+	}
+}
+3.
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		int[] numeros= {31,28,31,30,31,30,31,31,30,31,30,31};
+
+		Console.WriteLine("cuantos dias tiene el mes numero:");
+    
+		int numero = int.Parse(Console.ReadLine()) - 1;
+
+		Console.WriteLine("Ese mes tiene "+numeros[numero]+" dias");
+	}
+}
+
+ 4.
+using System;
+using System.Linq;
+
+public class Program
+{
+	public static void Main()
+	{
+		    int[] numeros = new int[10];
+			int n; 
+			int max = numeros[0];
+			for(int i = 0; i < 10; i++)
+			{
+				Console.Write("Numero: ");
+				n = int.Parse(Console.ReadLine());
+				numeros[i] = n;
+			}
+
+			Console.WriteLine("El numero mayor es: " + numeros.Max());
+	}
+
+5.
+
+using System;
+public class Program
+{
+public static void Main()
+	{
+    string[] nombres = new string[100];
+	
+			
+			for(int i = 0; i < 100; i++)
+			{
+				Console.Write("\nNombre: ");
+				nombres[i] = Console.ReadLine();
+			}
+			
+			for(int i = 0; i < 100; i++)
+			{
+				Console.Write("\nNombre "+ i +" "+nombres[i] );
+			}	
+	
+	}
+}
+
+6.
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		int Seguir = 1;
+		Console.WriteLine("Que desea hacer? Inserte el número de la opción que desea ");
+		Console.WriteLine("(1)Añadir una ficha nueva");	
+		Console.WriteLine("(2)Ver todas las fichas");		  
+		Console.WriteLine("(3)Buscar la ficha que tenga un cierto nombre");	
+		Console.WriteLine("(4)Salir");
+		int caseSwitch = int.Parse(Console.ReadLine());
+		string[,] imgs = new string[700,4];
+		int index = 0;
+		
+		while(Seguir == 1){
+			
+		if(index ==700){
+			Console.WriteLine("\nYa no puedes insertar mas datos");
+			Seguir = 2;
+			break;
+		}
+			
+		if(caseSwitch == 1){
+			string nombre;
+			int ancho;
+			int alto;
+			int tm;
+			Console.WriteLine("\nIngrese el nombre de la imagen");
+			nombre = Console.ReadLine();
+			Console.WriteLine("Ingrese el ancho de la imagen en pixeles");
+			ancho = int.Parse(Console.ReadLine());
+			Console.WriteLine("Ingrese la altura de la imagen en pixeles");
+			alto = int.Parse(Console.ReadLine());
+			Console.WriteLine("Ingrese el tamaño de la imagen en  KB");
+			tm = int.Parse(Console.ReadLine());
+			imgs[index,0]= nombre;
+			imgs[index,1]= Convert.ToString(ancho);
+			imgs[index,2]= Convert.ToString(alto);
+			imgs[index,3]= Convert.ToString(tm);
+			index++;
+			Console.WriteLine("\nQue desea hacer? Inserte el número de la opción que desea ");
+			Console.WriteLine("(1)Añadir una ficha nueva");	
+			Console.WriteLine("(2)Ver todas las fichas");		  
+			Console.WriteLine("(3)Buscar la ficha que tenga un cierto nombre");	
+			Console.WriteLine("(4)Salir");
+			caseSwitch = int.Parse(Console.ReadLine());
+			Console.WriteLine(imgs[index,0]);
+			Console.WriteLine(imgs[index,1]);
+			Console.WriteLine(imgs[index,2]);
+			Console.WriteLine(imgs[index,3]);
+		}
+			
+			if(caseSwitch == 2){
+				Console.WriteLine("\nVer todas las fichas");
+				for(int i = 0;i<=(index - 1);i++){
+					Console.WriteLine("#"+i+")"+imgs[i,0]);
+				}
+				Console.WriteLine("\nQue desea hacer? Inserte el número de la opción que desea ");
+				Console.WriteLine("(1)Añadir una ficha nueva");	
+				Console.WriteLine("(2)Ver todas las fichas");		  
+				Console.WriteLine("(3)Buscar la ficha que tenga un cierto nombre");	
+				Console.WriteLine("(4)Salir");
+				caseSwitch = int.Parse(Console.ReadLine());
+			}
+			
+			if(caseSwitch == 3){
+				Console.WriteLine("\nBuscar la ficha que tenga un cierto nombre");
+				string nombrei = Console.ReadLine();
+				
+				for(int i = 0;i<=index;i++){
+					
+					if( imgs[i,0] == nombrei ){
+						Console.WriteLine("#"+i+")"+imgs[i,0]);
+						Console.WriteLine("Ancho: "+imgs[i,1]);
+						Console.WriteLine("Alto: "+imgs[i,2]);
+						Console.WriteLine("Peso: "+imgs[i,3] +" KB");
+					}
+				}
+				
+				Console.WriteLine("\nQue desea hacer? Inserte el número de la opción que desea ");
+				Console.WriteLine("(1)Añadir una ficha nueva");	
+				Console.WriteLine("(2)Ver todas las fichas");		  
+				Console.WriteLine("(3)Buscar la ficha que tenga un cierto nombre");	
+				Console.WriteLine("(4)Salir");
+				caseSwitch = int.Parse(Console.ReadLine());
+			}
+			
+			if(caseSwitch == 4){
+				Seguir = 2;
+			}
+		}
+	}
+}
+
+7.
+using System;
+
+public class Program
+{
+	public static void Main()
+	{
+		Console.WriteLine("Escriba un nombre");
+		string nombre = Console.ReadLine();
+		int longitud = nombre.Length; 
+		for (int i=0; i<longitud; i++){
+			Console.Write(nombre[i]+" " );
+		}
+        
+	}
+}
+
+8.
+using System;
+
+public class Program
+{
+	public static void Main()
+	{
+		float[] alturas = new float[5];
+	 	float altura;
+		float promedio = 0;
+		int debajo = 0;
+		int sobre = 0;
+		Console.WriteLine("Escriba la altura de 5 personas");
+		for (int i=0; i<5; i++){
+			Console.WriteLine("Escriba la altura");
+			altura = float.Parse(Console.ReadLine());
+			alturas[i] = altura;
+			promedio = promedio + alturas[i];
+		}
+        promedio = promedio / 5;
+		
+		Console.WriteLine("\n"+" El promedio es: " + promedio);
+		for (int i=0; i<5; i++){
+			if(alturas[i] > promedio){
+				/*Console.WriteLine("\n"+alturas[i] + " Esta sobre el promedio");*/
+				sobre++;
+			}else{
+				/*Console.WriteLine("\n"+alturas[i] + " Esta debajo del promedio");*/
+				debajo++;
+			}
+
+		}
+		Console.WriteLine("\n"+sobre + " estan sobre el promedio");
+		Console.WriteLine("\n"+debajo + " estan debajo del promedio");
+
+9.
+
+using System;
+
+public class Program
+{
+	public static void Main()
+	{
+		int mul = 0;
+		while(mul != -1){
+			Console.WriteLine("\Ingrese un número");
+			mul = int.Parse(Console.ReadLine());
+			if(mul == -1){
+				break;
+			}else{
+				for(int i = 0; i <= 12 ; i++){
+				Console.WriteLine(mul+" X "+ i + " = " + mul * i);
+				}
+			}
+		}
+	}
+}
+10.
+using System;
+
+public class NombreEdad
+{
+	public static void Main()
+	{
+		Console.WriteLine("Escriba un nombre");
+		string nombre = Console.ReadLine();
+		
+		Console.WriteLine("Escriba una edad");
+		int edad = int.Parse((Console.ReadLine()));
+
+		if(edad >=18)
+			Console.WriteLine("\n"+nombre+" es mayor de edad");
+		else
+			Console.WriteLine("\n"+nombre+" es menor de edad");
